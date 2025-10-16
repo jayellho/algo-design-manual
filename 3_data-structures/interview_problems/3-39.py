@@ -1,7 +1,7 @@
 '''
 Implement an algorithm to reverse a linked list. Now do it without recursion.
 '''
-# Helper classes and funtions.
+# Helper classes and functions.
 class Node:
     def __init__(self, val, next=None):
         self.val = val
@@ -26,12 +26,10 @@ def print_linked_list(head):
         print(ptr.val)
         ptr = ptr.next
 
-
 # Iterative implemntation.
 def reverse_ll_iterative(head):
     ptr = head
     prev = None
-
 
     while ptr:
 
@@ -40,10 +38,11 @@ def reverse_ll_iterative(head):
         prev = ptr
         ptr = orig_next
     
-
     return prev
 
-
+# TODO: Recursive implementation.
+def reverse_ll_recursive():
+    pass
 
 # Driver code.
 if __name__ == "__main__":
