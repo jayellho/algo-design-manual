@@ -30,3 +30,34 @@ class LinkedList:
         while ptr:
             print(ptr.val)
             ptr = ptr.next
+
+
+# Traversals of trees.
+def inorder(node):
+
+    if not node:
+        return
+    inorder(node.left)
+    print(node.val, end = " ")
+    inorder(node.right)
+
+class BST:
+    def __init__(self, sorted_list):
+        self.root = self._build_bst(sorted_list)
+
+    
+    def _build_bst(self, sorted_list):
+        n = len(sorted_list)
+
+        if n <= 0:
+            return
+        mid = n // 2
+
+        node = BinTreeNode(sorted_list[mid])
+        node.left = self._build_bst(sorted_list[:mid])
+        node.right = self._build_bst(sorted_list[mid+1:])
+
+        return node
+
+
+
