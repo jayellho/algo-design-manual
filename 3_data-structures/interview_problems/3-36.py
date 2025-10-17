@@ -1,7 +1,6 @@
 '''
 [4] Write a function to find the middle node of a singly linked list.
 '''
-# TODO
 '''
 thought:
 - create 2 pointers.
@@ -16,33 +15,7 @@ thought:
 
 - NOTE: my implemntation takes the 2nd value as the middle for even-lengthed lists.
 '''
-
-class Node:
-    def __init__(self, val, next=None):
-        self.val = val
-        self.next = next
-
-class LinkedList:
-    def __init__(self):
-        self.head = Node(None)
-
-    # builds a linked list of self.size with arbitrarily increasing numbers.
-    def build_list(self,size):
-        ptr = self.head
-        for i in range(size):
-            to_insert = Node(i)
-            ptr.next = to_insert
-            ptr = ptr.next
-        self.head = self.head.next
-    
-    def print_list(self):
-        print("Linked list values: ")
-        ptr = self.head
-        
-        while ptr:
-            print(ptr.val)
-            ptr = ptr.next
-
+from helpers import LinkedList
 
 def get_middle_node(head):
 
@@ -50,7 +23,6 @@ def get_middle_node(head):
     
     slow = ptr
     fast = ptr
-
 
     while fast and fast.next:
         slow = slow.next

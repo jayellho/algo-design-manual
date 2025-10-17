@@ -1,32 +1,8 @@
 '''
 Implement an algorithm to reverse a linked list. Now do it without recursion.
 '''
-# Helper classes and functions.
-class Node:
-    def __init__(self, val, next=None):
-        self.val = val
-        self.next = next
-
-def build_linked_list(size):
-    head = Node(None)
-    ptr = head
-    for i in range(size):
-        to_insert = Node(i)
-        ptr.next = to_insert
-        ptr = ptr.next
-
-    return head.next
-
-def print_linked_list(head):
-    print("Linked list values:")
-
-    ptr = head
-
-    while ptr:
-        print(ptr.val)
-        ptr = ptr.next
-
-# Iterative implemntation.
+from helpers import LinkedList
+# Iterative implementation.
 def reverse_ll_iterative(head):
     ptr = head
     prev = None
@@ -46,15 +22,17 @@ def reverse_ll_recursive():
 
 # Driver code.
 if __name__ == "__main__":
-
+    ll = LinkedList()
     # build linked list.
-    eg1 = build_linked_list(6)
+    ll.build_list(6)
 
-    print_linked_list(eg1)
+    eg1 = ll.head
 
-    reversed_eg1 = reverse_ll_iterative(eg1)
+    ll.print_list()
 
-    print_linked_list(reversed_eg1)
+    ll.head = reverse_ll_iterative(eg1)
+
+    ll.print_list()
 
 
 
